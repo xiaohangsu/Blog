@@ -9,7 +9,7 @@ Finally, Tweet Map. (Google Map Api + Tweet Public Streaming Api + Elasticsearch
   <img src='https://xiaohangsu.files.wordpress.com/2017/03/screen-shot-2017-03-12-at-6-52-01-pm.png?w=1476'/>
 </p>
 
-Click Here- | [Github-](https://github.com/xiaohangsu/TweetMap)
+Click [here to Play](http://104.194.82.160:8081/) | [Github-](https://github.com/xiaohangsu/TweetMap)
 
 ## Tech Stack:
 
@@ -43,6 +43,11 @@ It is also important design how to reconnect. Once twitter Streaming got disconn
 
 What Tweet Map does, is for each polling ajax request for data, backend check if there still is connected and TweetQueue has new Tweets, if not, create a new Connection for streaming.
 
+### Rate Limit
+This is an problem haunting me for a while. I finally came up with a way to solve this.
+
+Unlike reconnection or Rate Limit in common sense, Rate Limit here actually is limitation for Users to get unlimited tweets data (If so, there twitter will not get any benefits form it :)). So basically what TweetMap do is when request reached the limitation, the whole system would restart to start getting tweets with a new request.
+
 ## Back End
 
 For backend, I used [**promise**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for each API to avoid callback hell.
@@ -67,11 +72,11 @@ Google Map is some powerful, and with my optimization with [GoogleMapCluster](ht
 
 Optimization is a topic for all digging deep. I used to create each infoWindows for each tweets, but it will drop performance for having so many infoWindows at a map, even you already had those markers : ). Some lazy load might be a good choice. When user click the marker, an ajax send and generate the infoWindows.
 
-Squeezing JSON length can reduce pressure for browser and server.
-
 <p align="center">
   <img src='https://xiaohangsu.files.wordpress.com/2017/03/screen-shot-2017-03-12-at-6-55-01-pm.png'/>
 </p>
+
+Compress JSON can reduce pressure for browser and server.
 
 For more optimization, I try to use event delegation, I try to delegate event for markers, but still it seems there are not event delegation in Google Map. I think Google should consider implement it in the future.
 
@@ -84,7 +89,7 @@ Beautiful layouts for Google Map too:
 
 ### ES6
 
-both frontend and backend are using ES6 standard and OO programing.
+Both Front End and Back End are using ES6 standard and OO Programing.
 
 ### Vue
 
