@@ -2,6 +2,8 @@
 menu:
   Home: /
   Archives: /archives
+  Github: https://github.com/xiaohangsu
+  LinkedIn: https://www.linkedin.com/in/xiaohangsu
 rss: /atom.xml
 
 # Content
@@ -12,7 +14,6 @@ fancybox: true
 sidebar: right
 widgets:
 - category
-- tag
 - tagcloud
 - archive
 - recent_posts
@@ -28,7 +29,7 @@ archive_type: 'monthly'
 show_count: false
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-97026578-1
 favicon: /favicon.png
 twitter:
 google_plus:
