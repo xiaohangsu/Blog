@@ -1,0 +1,21 @@
+menu:
+    Blog: /
+    Archive: /archives/
+    LinkedIn: https://www.linkedin.com/in/xiaohang-su-144098b9/
+    GitHub: https://github.com/xiaohangsu
+
+favicon: emoji_gif_100px/emoji_2.gif
+logo: emoji_gif_100px/emoji_2.gif
+
+# Comment
+# e.g disqus: seansun
+disqus: xiaohangsu
+duoshuo:
+cloudTie:
+
+# Analytics
+# google-analytics:
+ga: UA-97026578-1
+
+# Copyright Infomation
+startyear: 2017
