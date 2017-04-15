@@ -5,7 +5,8 @@ tags: Javascript
 ---
 In Javascript, Function is an object. In JS function, there some way to create and return an object like:
 
-```
+<pre>
+<code class='js'>
 let Animal = (type)=> {
 	this.type = type;
 	this.method = ()=>{
@@ -15,7 +16,7 @@ let Animal = (type)=> {
 }
 
 let animal = new Animal();
-```
+</code></pre>
 
 **this** in here is context. It is pretty similar to C++ or Java Context in Class.
 
@@ -29,7 +30,8 @@ From MDN:
 
 First, let's look at call(). We can use call() to chain constructor for an object.
 
-```
+<pre>
+<code class='js'>
 let Dog = ()=>{
 	Animal.call(this, 'dog');
 	return this;
@@ -44,13 +46,15 @@ let dog = Dog();
 let cat = Cat();
 dog.method(); // 'dog'
 cat.method(); // 'cat'
-```
+</code></pre>
+
 
 Using Animal.call give Dog context as context in Animal constructor. This usage is really similar to Java or C++ obeject inheritance. By using this you can support class inheritance and polymorphism by passing context to this.
 
 Another example from MDN using anonymous function can give a better view:
 
-```
+<pre>
+<code class='js'>
 var animals = [
   { species: 'Lion', name: 'King' },
   { species: 'Whale', name: 'Fail' }
@@ -65,18 +69,21 @@ for (var i = 0; i < animals.length; i++) {
     this.print();
   }).call(animals[i], i);
 }
-```
+</code></pre>
+
 Here example shows an anonymous function is passing its context to the animals array, so each animals array elements can have the print method.
 
 But sometimes we might invoke a function without setting context but passing a context outside to it. Below example is a great demo:
 
-```
+<pre>
+<code class='js'>
 let sayType = ()=> {
 	console.log(this.type);
 }
 
 sayType.call(dog); // 'dog'
-```
+</code></pre>
+
 
 apply is very similar to call(), There are only different from supporting arguments. For call is **call(thisArg, arg1, arg2...)**. For apply is **apply(thisArg, [arg1...argn])**.
 
@@ -89,7 +96,8 @@ The bind() function is to create a new bound function(BF), to warp the original 
 
 First example is showing the context changing by using bind():
 
-```
+<pre>
+<code class='js'>
 this.x = 9;    // this refers to global "window" object here in the browser
 var module = {
   x: 81,
@@ -107,12 +115,14 @@ retrieveX();
 // global var x with module's property x
 var boundGetX = retrieveX.bind(module);
 boundGetX(); // 81
-```
+</code></pre>
+
 **retrieveX** context is in global but **boundGetX** context is changed to module context.
 
 The next example is more practical as I often encounter during my coding experience:
 
-```
+<pre>
+<code class='js'>
 function LateBloomer() {
   this.petalCount = Math.ceil(Math.random() * 12) + 1;
 }
@@ -130,7 +140,8 @@ LateBloomer.prototype.declare = function() {
 var flower = new LateBloomer();
 flower.bloom();  
 // after 1 second, triggers the 'declare' method
-```
+</code></pre>
+
 By default within window.setTimeout(), the this keyword will be set to the window (or global) object. But this later *this* **LateBloomer.prototype.bloom = function() {
   window.setTimeout(this.declare.bind(this), 1000);
 };** is actually passing as lateBloomer context and keeping this context and trigger it after 1 second.

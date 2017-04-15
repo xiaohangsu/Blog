@@ -6,7 +6,8 @@ tags: Javascript
 
 There was problem when I was writing Back End in [MovieHub](https://github.com/xiaohangsu/movieHub). For missing JSON field, Sequelize.query() will throw error outside Promise. It caused me cannot catch the error in router.
 
-```
+<pre>
+<code class='js'>
 router.post('/db/addMovie', async (ctx, next)=> {
     console.log('/db/addMovie Request ', JSON.stringify(ctx.request.body));
     ctx.body = await movie.addMovie(ctx.request.body).then((instance, meta)=> {
@@ -23,17 +24,22 @@ router.post('/db/addMovie', async (ctx, next)=> {
         }
     });
 });
-```
+</code>
+</pre>
+
 movie.addMovie receives post data. And Movie is ORM.
 
-```
+<pre>
+<code class='js'>
 addMovie(json) {
     return this.conn.query('INSERT INTO Movies '
         + '(movid, movname, movyear, genre, director, description, movTrailerUrl, movScreenshotUrl) '
         + 'VALUES (:movid, :movname, :movyear, :genre, :director, :description, :movTrailerUrl, :movScreenshotUrl)',
         {replacements: json});
 }
-```
+</code>
+</pre>
+
 Cannot catch missing JSON error because Error throws outsides Promise.
 
 
@@ -52,7 +58,8 @@ Here I would discuss how to validate JSON elegantly if some fields are missing.
 
 Catch validation error in stead of validate fields one by one. Of cause you can write a Tool Class to validate your JSON fields one by one. But it would make your code inefficient and unnecessary.
 
-```
+<pre>
+<code class='js'>
 function validate(json, array) {
 	for (field in array) {
 		if (json[field] === undefined) return field;
@@ -73,11 +80,14 @@ addMovie(json) {
     else {
     	return noMissField;
 }
-```
+</code>
+</pre>
+
 
 But there is a more elegant way to do so. I create a function query in [query.js](https://github.com/xiaohangsu/movieHub/blob/movie-restful/data/query.js).
 
-```
+<pre>
+<code class='js'>
 let Promise = require('bluebird');
 
 module.exports = (func)=>{
@@ -89,11 +99,14 @@ module.exports = (func)=>{
         }
     });
 };
-```
+</code>
+</pre>
+
 
 And all those ORM methods change into:
 
-```
+<pre>
+<code class='js'>
 addMovie(json) {
     return query(()=>{
         return this.conn.query('INSERT INTO Movies '
@@ -102,6 +115,8 @@ addMovie(json) {
             {replacements: json});
     });
 }
-```
+</code>
+</pre>
+
 
 Remind ORM methods all return a promise for router layer. So using a promise as wrapper to try catch those Validation Error. It would make less code and more efficient, as once missing field error would be threw immediately.

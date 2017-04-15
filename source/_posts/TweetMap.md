@@ -23,9 +23,10 @@ Click [here to Play](http://104.194.82.160:8081/) | [Github-](https://github.com
 This part contains Twitter Streaming API, Oauth-1.0-a, Nodejs Stream, and Http Streaming.
 
 ## Public Streaming API
-```
+<pre><code class='http'>
 https://stream.twitter.com/1.1/statuses/filter.json?locations=-180.0,-90.0,180.0,90.0
-```
+</code></pre>
+
 Using filter post request can get response with specific requirements. For Tweet Map, each JSON coordinates field should contain geo location. USing location get params will filter for us.
 
 ### Oauth-1.0a

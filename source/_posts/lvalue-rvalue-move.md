@@ -12,7 +12,8 @@ For any C++ expression, either it is an lvalue or an rvalue. From MSDN:
 
 I think this is a great explanation in many versions from different websites.
 
-```
+<pre>
+  <code>
   int a = 42; // a lvalue | 42 rvalue
   int b = 43; // b lvalue | 43 rvalue
 
@@ -24,7 +25,8 @@ I think this is a great explanation in many versions from different websites.
   // a * b is an rvalue:
   int c = a * b; // ok, rvalue on right hand side of assignment
   a * b = 42; // error, rvalue on left hand side of assignment
-```
+  </code>
+</pre>
 
 #### rvalue reference
 If **X** is a type, then **X&&** is called an rvalue reference. What rvalue reference is different is that:
@@ -32,22 +34,23 @@ If **X** is a type, then **X&&** is called an rvalue reference. What rvalue refe
 * Compiler compile time would be different because pre-know(you can also think of pre-define) variable as an rvalue, instead guessing it whether it is an lvalue or an rvalue.
 
 ### std::move
-*Defined in header* **\#\<utility>**
+*Defined in header* **#&lt;utility>**
 
 **std::move** as it indicated, it tries to move an object to an other object in rvalue reference way. **std::move** is a function moving a object reference to an other, like shifting object ownership.
 
 Let's look at an example from [cpp reference](http://en.cppreference.com/w/cpp/utility/move).
 
-```
-#include <iostream>
-#include <utility>
-#include <vector>
-#include <string>
+<pre>
+  <code class='cpp'>
+#include &lt;iostream>
+#include &lt;utility>
+#include &lt;vector>
+#include &lt;string>
  
 int main()
 {
     std::string str = "Hello";
-    std::vector<std::string> v;
+    std::vector&lt;std::string> v;
  
     // uses the push_back(const T&) overload, which means 
     // we'll incur the cost of copying str
@@ -64,7 +67,8 @@ int main()
     std::cout << "The contents of the vector are \"" << v[0]
                                          << "\", \"" << v[1] << "\"\n";
 }
-```
+  </code>
+</pre>
 
  **push_back()** invoked twice. First **push_back** created a new string to push into vector, while the second one shift ownership and no string will be copied. When we try to 'move' a complex object with lots of members functions and datas, simply using std::move could make assignment efficient.
  
