@@ -13,7 +13,7 @@ Tags: `C++`, `Machine Learning`, `Deep Learning`, `CNN DNN`
 ## [TweetsMap](https://github.com/xiaohangsu/simNeural)
 > 2017.2 ~
 
-[Playable Demo](tweetsmap.xiaohangsu.xyz)
+[Playable Demo](http://tweetsmap.xiaohangsu.xyz)
 
 Real-Time Tweets showed on Google Map, deployed on AWS, using Elasticsearch and Kafka.
 
@@ -27,8 +27,10 @@ Tags: `Twitter API`, `Google Map API`, `Elasticsearch`,  `Kafka`, `Vue2`, `Koa2`
 
 Tags: ```MySQL```, ```Koa2```, ```Machine Learning k-NN```
 
-## Modern Rendering
+## [Modern Rendering](https://github.com/xiaohangsu/ocean-shader)
 > 2016.9
+
+Tags:	`OpenGL`, `Shader Rendering`, `GLSL`, `Post`
 
 ## Chatroom
 > 2014.3 - 2014.7
