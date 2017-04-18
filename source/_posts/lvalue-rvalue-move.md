@@ -13,7 +13,7 @@ For any C++ expression, either it is an lvalue or an rvalue. From MSDN:
 I think this is a great explanation in many versions from different websites.
 
 <pre>
-  <code>
+  <code class='cpp'>
   int a = 42; // a lvalue | 42 rvalue
   int b = 43; // b lvalue | 43 rvalue
 
