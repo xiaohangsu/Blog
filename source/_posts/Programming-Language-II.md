@@ -121,7 +121,7 @@ int main()
 Sample Output:
 
 <p align="center">
-  <img src='https://lh3.googleusercontent.com/0KdcuiY3guPiALHFNYLIGH_87xYgtKWcNdCR3SdVkyYeqhAk3VdcLbPjhTwk05_7ngXNRbGSbuR8FDE=w2902-h1610-rw'/>
+  <img src='https://xiaohangsu.files.wordpress.com/2017/05/output.jpg'/>
 </p>
 
 
