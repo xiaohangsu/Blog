@@ -1,7 +1,9 @@
 ---
 title: Prolog A Logical Language
+date: 2017-05-12 15:50:55
 tags:
 ---
+
 
 ## Prolog
 
@@ -63,7 +65,52 @@ X= rose.
 Y= jack.
 </code></pre>
 
+### Arithmetic in Prolog
 
+Arithmetic examples	Prolog Notation
+
+* 6 + 2 = 8	   `8  is  6+2.`
+* 6 ∗ 2 = 12	  `12  is  6*2.`
+* 6 − 2 = 4  	   `4  is  6-2.`
+* 6 − 8 = − 2	  `-2  is  6-8.`
+* 6 ÷ 2 = 3	   `3  is  6/2.`
+* 7 ÷ 2 = 3	   `3  is  7/2.`
+* mod operation -> `1 is mod(7, 2).`
+
+Comparing with Integers
+
+* x < y	`X  <  Y.`
+* x ≤ y	`X  =<  Y.`
+* x = y	`X  =:=  Y.`
+* x ⁄= y	`X  =\=  Y.`
+* x ≥ y	`X  >=  Y.`
+* x > y	`X  >  Y.`
+
+### Recursion
+Still recursion is based on Prolog rules. A useful and good example is Fibonacci.
+ 
+<pre><code class="prolog">
+fibonacci(0,0).
+fibonacci(1,1).
+fibonacci(N, F) :-
+    N > 0,
+    N1 is N - 1,
+    N2 is N - 2,
+    fibonacci(N1, F1),
+    fibonacci(N2, F2),
+    F is F1 + F2.
+</code></pre>
+
+For every `,` in third rule,those are multiple commas meaning multiple logic **AND**. This you can whether a number is fibonacci sequence or calculate a fibonacci sequence.
+
+<pre><code class="prolog">
+?- fibonacci(1,1).
+true.
+?- fibonacci(2,1).
+true.
+?- fibonacci(3,X).
+X=2.
+</code></pre>
 
 
 *Reference*
