@@ -1,9 +1,7 @@
 ---
 title: Java Parse JSON Smoothly
-date: 2017-06-27 20:44:43
 tags:
 ---
-
 
 ## Java Parse JSON Smoothly
 Currently I am working on [Boss Money](https://www.bossrevolution.com/en-us/services/money-transfer) Android widget part. There is a case that we need to parse JSON from GraphQL backend. It is pretty easy in Javascript. For example, there is a JSON like:
@@ -94,6 +92,7 @@ For each Key-Value in JSON, there will be three cases:
 	}
 </code>
 </pre>
+
 In here every element of `JSONArray` is `JSONObject`, so we just reuse (*recursive call*) `parseJSON` again.
 
 So I can get the rate with this class easily:
@@ -102,6 +101,7 @@ So I can get the rate with this class easily:
 jsonHelper.getString("data.fxRates.rate[0]", "Default"); // "12.33"
 </code>
 </pre>
+
 Even JSON change structure and with different nested fields, I still can value easily using this.
 
 Source Code:
