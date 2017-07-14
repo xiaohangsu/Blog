@@ -66,6 +66,6 @@ So using SharedPreference in WidgetBridge, data got persisted and can be reused 
 ### Finally
 
 Boss Money Widget
-![alt widget]()
+![alt widget](http://xiaohangsu.xyz/android-widget-on-react-native-1.png)
 
 We use *SharedPreference* as data channel and WidgetBridge to serve as interface between App and Widget.
