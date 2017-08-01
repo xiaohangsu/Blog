@@ -23,17 +23,17 @@ We still need [Native Modules](https://facebook.github.io/react-native/docs/nati
 @interface CalendarManager : NSObject &lt;RCTBridgeModule>
 @end</code></pre>
 
-<pre><code class="objectivec">#import "CalendarManager.h"
+<pre>
+<code class="objectivec">#import "CalendarManager.h"
 #import &lt;React/RCTLog.h>
 
 @implementation CalendarManager
-
 RCT_EXPORT_MODULE();
-
 RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 {
   RCTLogInfo(@"Pretending to create an event %@ at %@", name, location);
 }</code></pre>
+
 These codes are from React-Native Native Modules.
 
 So it made IOS Extension communicates with App possible. You did need to care of Objective C syntax. The App to Widget data "channel", just use **userDefaults**, but you do need set App Group to do so.
