@@ -85,7 +85,7 @@ Before internship ended, I already finished my test_parser and it got those feat
 With test_parser, we now can create test cases in JSON format now!
 
 ### Break test case apart
-
+I want to cover component testing in one blog, but I was tried of writing right now, I would introduce how I break test case apart (a very simple concept but very useful) accidentally matched the concept of component testing.
 
 ## Appendix
 
