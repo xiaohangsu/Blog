@@ -92,10 +92,8 @@ shared_ptr:
 * using pointer for an allocated "Reference" object.
 
 
-
-
 #### Reference
 
 * [MSDN Smart Pointers (Modern C++)](https://msdn.microsoft.com/en-us/library/hh279674.aspx)
-* <Effective C++>
+* &lt;Effective C++>
 * https://www.codeproject.com/Articles/15351/Implementing-a-simple-smart-pointer-in-c
