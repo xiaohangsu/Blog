@@ -59,9 +59,43 @@ If priority() execution failed, new Widget would return the pointer but it did n
 
 ### Primitive Implementation
 
+For a generic smart pointer using template:
+
+<pre><code class="c++">
+template &lt;typename T> class SmartPointer {
+private:
+	T* dataPointer; // pointer stored data
+public:
+	SmartPointer(T* value) : dataPointer(value) {}
+	~SmartPointer() {
+		delete dataPointer;
+	}
+	T& operator* () {
+		return *dataPointer;
+	}
+	
+	T* operator->() {
+		return dataPointer;
+	}
+}
+</code></pre>
+
+It is primitive implemention of smart pointer. The trick in here is *delete inner pointer* in destructor. If we try to implement others like unique_ptr or shared_ptr, implementations are different. *unique_ptr* is singleton pattern and *shared_ptr* used reference counting ([**shared_ptr** implementation]()).
+
+unique_ptr:
+
+* Disable copy constructor and assignment operator, or make sure pointer do not copy a new one.
+* singleton pattern and make use of *static*.
+
+shared_ptr:
+
+* using pointer for an allocated "Reference" object.
+
+
 
 
 #### Reference
 
 * [MSDN Smart Pointers (Modern C++)](https://msdn.microsoft.com/en-us/library/hh279674.aspx)
 * <Effective C++>
+* https://www.codeproject.com/Articles/15351/Implementing-a-simple-smart-pointer-in-c
